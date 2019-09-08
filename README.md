@@ -29,7 +29,7 @@ For viewing the user data
 
 For viewing the account details
 - http://localhost:8080/account/1
-- http://localhost:8080/account/2-
+- http://localhost:8080/account/2
 
 For performing the money transfer
 - http://localhost:8080/transaction/transferFund
