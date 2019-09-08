@@ -1,6 +1,6 @@
 # Money transfer Rest API
 
-A Java RESTful API for money transfers between users accounts
+A Java RESTful API for creating user bank accounts and money transfers between these
 
 ### Technologies
 - JAX-RS API
@@ -14,13 +14,22 @@ A Java RESTful API for money transfers between users accounts
 ```sh
 mvn exec:java
 ```
+Or 
+
+Run the main method in Application class
 
 Application starts a jetty server on localhost port 8080 An H2 in memory database initialized with some sample user and account data To view
 
-- http://localhost:8080/user/test1
-- http://localhost:8080/user/test2
+For viewing the user data
+- http://localhost:8080/user/gaurav
+- http://localhost:8080/user/daksh
+
+For viewing the account details
 - http://localhost:8080/account/1
-- http://localhost:8080/account/2
+- http://localhost:8080/account/2-
+
+For performing the money transfer
+- http://localhost:8080/transaction/transferFund
 
 ### Available Services
 
@@ -38,7 +47,7 @@ Application starts a jetty server on localhost port 8080 An H2 in memory databas
 | DELETE | /account/{accountId} | remove account by accountId | 
 | PUT | /account/{accountId}/withdraw/{amount} | withdraw money from account | 
 | PUT | /account/{accountId}/deposit/{amount} | deposit money to account | 
-| POST | /transaction | perform transaction between 2 user accounts | 
+| POST | /transaction/transferFund | perform transaction between 2 user accounts | 
 
 ### Http Status
 - 200 OK: The request has succeeded
@@ -50,15 +59,15 @@ Application starts a jetty server on localhost port 8080 An H2 in memory databas
 ##### User : 
 ```sh
 {  
-  "userName":"test1",
-  "emailAddress":"test1@gmail.com"
+  "userName":"gaurav",
+  "emailAddress":"gaurav@gmail.com"
 } 
 ```
 ##### User Account: : 
 
 ```sh
 {  
-   "userName":"test1",
+   "userName":"gaurav",
    "balance":10.0000,
    "currencyCode":"GBP"
 } 
@@ -67,8 +76,8 @@ Application starts a jetty server on localhost port 8080 An H2 in memory databas
 #### User Transaction:
 ```sh
 {  
-   "currencyCode":"EUR",
-   "amount":100000.0000,
+   "currencyCode":"USD",
+   "amount":50.0000,
    "fromAccountId":1,
    "toAccountId":2
 }
