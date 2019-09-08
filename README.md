@@ -8,6 +8,7 @@ A Java RESTful API for creating user bank accounts and money transfers between t
 - Log4j
 - Jetty Container (for Test and Demo app)
 - Apache HTTP Client
+- Jersey 
 
 
 ### How to run
